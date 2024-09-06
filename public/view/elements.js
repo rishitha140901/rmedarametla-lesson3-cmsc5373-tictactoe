@@ -1,1 +1,1 @@
-export const root =document.getElementById('roo');
+export const root =document.getElementById('root');
