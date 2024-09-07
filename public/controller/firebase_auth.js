@@ -9,6 +9,7 @@ import { signinPageView } from "../view/signin_page.js";
 import { routePathnames, routing } from "./route_controller.js";
 
 const auth = getAuth(app);
+export let currentUser = null;
 
 export async function signinFirebase(e) {
     e.preventDefault();
@@ -32,6 +33,7 @@ export function attachAuthStateChangeObserver(){
 }
 
 function authStateChangeListener(user){
+    currentUser= user;
     if(user){
         const postAuth = document.getElementsByClassName('myclass-postauth');
         for(let i=0;i< postAuth.length;i++){
