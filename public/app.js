@@ -7,4 +7,3 @@ document.getElementById('menu-menu2').onclick = onClickMenu2Menu;
 document.getElementById('menu-signout').onclick = onClickSignOutMenu;
 attachAuthStateChangeObserver();
 
-signinPageView();
