@@ -2,10 +2,10 @@ import { root } from "./elements.js";
 import { currentUser } from "../controller/firebase_auth.js";
 import { protectedView } from "./protected_view.js";
 
-export async function Menu2PageView(){
+export async function PlayRecordPageView(){
     if (!currentUser){
         root.innerHTML= await protectedView();
         return;
     }
-    root.innerHTML = '<h1>Menu2 page</h1';
+    root.innerHTML = '<h1>Play Record page</h1';
 }

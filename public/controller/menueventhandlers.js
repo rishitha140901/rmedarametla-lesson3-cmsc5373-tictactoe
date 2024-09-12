@@ -1,5 +1,5 @@
 import { homePageView } from "../view/home_page.js";
-import { Menu2PageView } from "../view/menu2_page.js";
+import { PlayRecordPageView } from "../view/playrecord_page.js";
 import { signOutFirebase } from "./firebase_auth.js";
 import { routePathnames } from "./route_controller.js";
 
@@ -7,10 +7,10 @@ export function onClickHomeMenu(e){
     history.pushState(null, null, routePathnames.HOME);
     homePageView();
 }
-export function onClickMenu2Menu(e){
+export function onClickPlayRecord(e){
     
-    history.pushState(null, null, routePathnames.MENU2);
-    Menu2PageView();
+    history.pushState(null, null, routePathnames.PLAYRECORD);
+    PlayRecordPageView();
 }
 
 export async function onClickSignOutMenu(e){
