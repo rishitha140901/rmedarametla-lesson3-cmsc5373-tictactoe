@@ -26,7 +26,14 @@ async function savePlayRecord() {
         winner='Draw';
     }
     const timestamp=Date.now();
+
     const playRecord ={email,moves,winner,timestamp};
+    
+    const div=document.createElement('div');
+    div.classList.add('text-white','bg-primary');
+    div.textContent=' Saving to Firestore ... ';
+    document.getElementById('message').appendChild(div);
+
     try {
         await addTicTacToeGameRecord(playRecord)
         
@@ -34,9 +41,10 @@ async function savePlayRecord() {
         if(DEV) console.log('failed to save play recors', e);
         alert(`
             Failed to save: ${JSON.stringify(e)}   `);
-            
+
         
     }
+    div.remove();
     
 }
 
