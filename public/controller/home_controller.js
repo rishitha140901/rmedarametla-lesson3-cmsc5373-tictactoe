@@ -12,7 +12,6 @@ export function onclickBoardButton(e){
     }
     updateWindow();
 
-
 }
 
 export function onclickNewGame(e){
