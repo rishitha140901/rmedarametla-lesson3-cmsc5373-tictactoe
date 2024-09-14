@@ -21,11 +21,31 @@ export async function PlayRecordPageView(){
     
 
 
-    let playRecord;
+    let playRecords;
     try{
-        playRecord=await getAllPlayRecords(currentUser.email);
+        playRecords=await getAllPlayRecords(currentUser.email);
     }catch(e){
         if(DEV) console.log('failed to getAllPlayRecords',e);
         alert(`Failed to get play records: ${JSON.stringify(e)}`)
     }
+
+    const tbody = divWrapper.querySelector('tbody');
+    playRecords.forEach(record => tbody.appendChild(buildOnePlayRecordView(record)));
+
+
+}
+function buildOnePlayRecordView(record){
+    const tr = document.createElement('tr');
+    tr.innerHTML=`
+    <td>
+      ${record.winner}
+    </td>
+    <td>
+      ${record.moves}
+    </td>
+    <td>
+      ${new Date(record.timestamp).toLocaleString()}
+    </td>
+    `;
+    return tr;
 }
