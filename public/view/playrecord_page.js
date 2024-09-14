@@ -30,7 +30,19 @@ export async function PlayRecordPageView(){
     }
 
     const tbody = divWrapper.querySelector('tbody');
-    playRecords.forEach(record => tbody.appendChild(buildOnePlayRecordView(record)));
+    if (playRecords.length ==0){
+        tbody.innerHTML = `
+        <tr>
+        <td colspan="3" class="text-center fs-3">
+        No play records found!
+        </td>
+        </tr>
+        `;
+
+    }else{
+        playRecords.forEach(record => tbody.appendChild(buildOnePlayRecordView(record)));
+    }
+   
 
 
 }
